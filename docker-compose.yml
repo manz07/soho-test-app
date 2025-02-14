@@ -1,0 +1,22 @@
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    ports:
+      - "1433:1433"  # Expose SQL Server on port 1433
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=yourStrong@Passw0rd
+      - MSSQL_PID=Express
+    networks:
+      - app-network
+    volumes:
+      - sqlserver-data:/var/opt/mssql  # Persist data
+
+volumes:
+  sqlserver-data:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
