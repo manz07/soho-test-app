@@ -1,7 +1,9 @@
 package org.test.crudimage.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.*;
 
 @AllArgsConstructor
@@ -10,12 +12,13 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
+@Table(name = "cat_image")
 public class CatImage {
 
     @Id
-    private Integer id;
+    private String id;
     private String url;
-    private Float width;
-    private Float height;
+    private Integer width;
+    private Integer height;
 
 }
